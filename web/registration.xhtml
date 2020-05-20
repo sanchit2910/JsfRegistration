@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css" />-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!--<script src="js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <h:head>
+        <title>Register</title>
+    </h:head>
+    <h:body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand glyphicon glyphicon-home" href="index.xhtml"> Home</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="index.xhtml"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </nav>
+        <!--<div class="container">-->
+        <h:form class="accordion" style="text-align:center; color: #00ffcc;background-color: #000;" >
+                <div class="form-group container">
+                    <h:outputLabel value="Registration Form" class="h2 "/>
+                    <br/>
+                    <br/>
+
+                    <h:outputLabel value="First Name:"/>
+                    <h:inputText value="#{userBean.firstName}"  id="fName" required="true" requiredMessage="You must enter the first name"/>
+                    <h:message for="fName" style="color:red"/>
+
+                    <br/>
+                    <br/>
+                    <h:outputLabel value="Last Name:"/>
+                    <h:inputText value="#{userBean.lastName}" id="lName" required="true"  requiredMessage="You must enter the last name"/>
+                    <h:message for="lName" style="color:red"/>
+                    <br/>
+                    <br/>
+                    <h:outputLabel value="User Id:"/>
+                    <h:inputText id="uid" value="#{userBean.userID}" required="true" requiredMessage="You must enter user Id" validatorMessage="User Id should be at least 6 characters long">
+                        <f:validateLength minimum="6"/>
+                    </h:inputText>
+                    <h:message for="uid" style="color:red"/>
+                    <br/>
+                    <br/>
+                    <h:outputLabel value="Password"/>
+                    <h:inputSecret id="pass" size="12" value="#{userBean.password}" required="true" requiredMessage="You must enter the password" validatorMessage="Password must be minimum 5 characters long" >
+                        <f:validateLength minimum="5"/>
+                    </h:inputSecret>
+                    <h:message for="pass" style="color:red"/>
+                    <br/>
+                    <br/>
+                    <h:outputLabel value="Confirm password"/>
+                    <h:inputSecret size="12" value="#{userBean.confirmPassword}" id="cpass" required="true" requiredMessage="You must confirm the password" />
+                    <h:message for="cpass" style="color:red"/>
+                    <br/>
+                    <br/>
+                    <h:commandButton value="Submit" class="btn-dark" action="home.xhtml"/>&nbsp;&nbsp;
+                    <h:commandButton value="Reset" immediate="true" action="Registration"/>
+                </div>
+            </h:form>
+        <!--</div>-->
+    </h:body>
+</html>
+
